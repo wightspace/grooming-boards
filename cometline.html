@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="author" content="Crystal Townsend">
+<title>Comet Line</title>
+<link rel="shortcut icon" href="favicon.ico">
+<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+<style>
+body {
+  overflow:hidden;
+  padding: 0;
+  margin: 0;
+}
+#placement {
+  position: absolute;
+  bottom: 4%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#bottombox {
+    position:absolute;
+    left:0;
+}
+#topbox {
+    position:relative;
+}
+.outer-text {
+  display:inline-block;
+  font-size:4.5vw;
+  font-weight: 900;
+  font-family: 'Montserrat', Arial, sans-serif;
+  color:whitesmoke;
+  -webkit-text-stroke: 10px whitesmoke;
+}
+.gradient-text {
+  display:inline-block;
+  font-size:4.5vw;
+  font-weight: 900;
+  font-family: 'Montserrat', Arial, sans-serif;
+  color: transparent;
+  background: -webkit-linear-gradient(firebrick, chocolate);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-text-fill-color: transparent;
+}
+.iframe-container {
+  overflow: hidden;
+  /* 16:9 aspect ratio */
+  /*padding-top: 56.25%;*/
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  padding: none;
+}
+.iframe-container iframe {
+   border: none;
+   left: -15vw;
+   top: -11vh;
+   position: absolute;
+   width: 130vw;
+   height: 130vh;
+   overflow: hidden;
+}
+#top, #bottom, #left, #right {
+	background: whitesmoke;
+	position: fixed;
+}
+#left, #right {
+	top: 0; bottom: 0;
+	width: 15px;
+}
+#left { left: 0; }
+#right { right: 0; }
+#top, #bottom {
+	left: 0; right: 0;
+	height: 15px;
+}
+#top { top: 0; }
+#bottom { bottom: 0; }
+</style>
+<script>
+function load(url, callback) {
+  var req = new XMLHttpRequest();
+  req.open('GET', url);
+  // to allow us doing XSLT in IE
+  try { req.responseType = "msxml-document" } catch (ex) {}
+  req.onload = function() {
+    callback(req.responseXML);
+  };
+  req.send();
+}
+
+function transform(xml, xsl) {
+  load(
+    xml,
+    function(inputXml) {
+      load(
+        xsl,
+        function(xsltSheet) {
+          displayResult(inputXml, xsltSheet);
+        }
+      );
+    }
+  );
+}
+
+function displayResult(xmlInput, xsltSheet) {
+  if (typeof XSLTProcessor !== 'undefined') {
+    var proc = new XSLTProcessor();
+    proc.importStylesheet(xsltSheet);
+    document.getElementById('placement').appendChild(proc.transformToFragment(xmlInput, document));
+  }
+  else if (typeof xmlInput.transformNode !== 'undefined') {
+    document.getElementById("placement").innerHTML = xmlInput.transformNode(xsltSheet);
+  }
+}
+</script>
+</head>
+<body onload="transform('https://status.skisilverstar.com/1756.xml', 'comettime.xsl')">
+    <div class="iframe-container">
+        <iframe src="http://10.100.241.12" title="Comet Live Stream"></iframe>
+        <div id="placement"></div>
+    </div>
+    <div id="left"></div>
+    <div id="right"></div>
+    <div id="top"></div>
+    <div id="bottom"></div>
+</body>
+</html>

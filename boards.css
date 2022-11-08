@@ -1,0 +1,99 @@
+/*Appearance*/	
+	.closed {
+		text-indent: -9999px;
+		line-height: 0;
+	}
+	.closed:after {
+		width: 20px;
+		height: 9px;
+		background: red;
+		display: block;
+		float:left;
+		line-height: initial;
+		text-indent: 0;
+		content: "";
+		color:red;
+		font-size: 12px;
+		vertical-align: middle;
+		position: absolute;
+	}
+	.groomed {
+		text-indent: -9999px;
+		line-height: 0;
+	}
+	.groomed:after {
+		width: 20px;
+		height: 9px;
+		background: white;
+		display: block;
+		float:left;
+		line-height: 1.1;
+		text-indent: 5px;
+		content: "G";
+		font;font-family: 'Khula', Arial, sans-serif;
+		font-weight: normal;
+		color:black;
+		font-size: 11px;
+		vertical-align: top;
+	}
+	.racing {
+		text-indent: -9999px;
+		line-height: 0;
+	}
+	.racing:after {
+		width: 20px;
+		height: 9px;
+		background: white;
+		display: block;
+		float:left;
+		line-height: 1.1;
+		text-indent: 6px;
+		content: "R";
+		font;font-family: 'Khula', Arial, sans-serif;
+		font-weight: normal;
+		color:red;
+		font-size: 11px;
+		vertical-align: middle;
+	}
+	.open {
+		text-indent: -9999px;
+		line-height: 0;
+	}
+	.open:after {
+		width: 20px;
+		height: 9px;
+		background: #00B300;
+		display: block;
+		float:left;
+		line-height: initial;
+		text-indent: 0;
+		content: "";
+		color:#00B300;
+		font-size: 12px;
+		vertical-align: middle;
+	}
+	.blackout {
+		width: 20px;
+		height: 10px;
+		background: black;
+		display: block;
+		float:left;
+		line-height: initial;
+		text-indent: 0;
+		content: "";
+		color:black;
+		font-size: 1em;
+		vertical-align: middle;
+	}
+	.hidestatus {
+		display:none;
+	}
+	table, td,th {
+		border: none;
+	}
+	.canvas {
+		top: -2px;
+		left:-3px;
+		position:absolute;
+		width:208px;
+	}

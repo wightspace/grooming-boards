@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Putnam Board</title>
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="stylesheet" href="boards.css" />
+<link href="https://fonts.googleapis.com/css?family=Khula:800" rel="stylesheet">
+<style>
+	body {
+		background-color: black;
+	}
+/*Positioning*/
+	/*Powder Gulch*/
+	.auntgladys {
+		top:30px;
+		left:8px;
+		position: absolute;
+	}
+	.bergerstrasse {
+		top:41px;
+		left:8px;
+		position: absolute;
+	}
+	.lastchance {
+		top:51px;
+		left:8px;
+		position: absolute;
+	}
+	.twentyfivenorth {
+		top:62px;
+		left:8px;
+		position: absolute;
+	}
+	.justdandy {
+		top:72px;
+		left:8px;
+		position: absolute;
+	}
+	.sunnyridge {
+		top:83px;
+		left:8px;
+		position: absolute;
+	}
+	.buckedoff {
+		top:94px;
+		left:8px;
+		position: absolute;
+	}
+	.sunnyhigh {
+		top:104px;
+		left:8px;
+		position: absolute;
+	}
+	.robsonstreet {
+		top:115px;
+		left:8px;
+		position: absolute;
+	}
+	.fearngully {
+		top:30px;
+		left:40px;
+		position: absolute;
+	}
+	.eldorado {
+		top:41px;
+		left:40px;
+		position: absolute;
+	}
+	.weewillie {
+		top:51px;
+		left:40px;
+		position: absolute;
+	}
+	.gypsyqueen {
+		top:62px;
+		left:40px;
+		position: absolute;
+	}
+	.campbellsloop {
+		top:72px;
+		left:40px;
+		position: absolute;
+	}
+	.caliperridge {
+		top:83px;
+		left:40px;
+		position: absolute;
+	}
+	.larch {
+		top:94px;
+		left:40px;
+		position: absolute;
+	}
+	.juddsrun {
+		top:104px;
+		left:40px;
+		position: absolute;
+	}
+	.blackpine {
+		top:115px;
+		left:40px;
+		position: absolute;
+	}
+	.holysmokes {
+		top:19px;
+		left:72px;
+		position: absolute;
+	}
+	.minerva {
+		top:30px;
+		left:72px;
+		position: absolute;
+	}
+	.nirvana {
+		top:41px;
+		left:72px;
+		position: absolute;
+	}
+	.zypper {
+		top:51px;
+		left:72px;
+		position: absolute;
+	}
+	.bondiablo {
+		top:62px;
+		left:72px;
+		position: absolute;
+	}
+	.heresjoe {
+		top:72px;
+		left:72px;
+		position: absolute;
+	}
+	.normania {
+		top:83px;
+		left:72px;
+		position: absolute;
+	}
+	.blackbear {
+		top:94px;
+		left:72px;
+		position: absolute;
+	}
+	.whiteelephant {
+		top:104px;
+		left:72px;
+		position: absolute;
+	}
+	.robilliardsrush {
+		top:115px;
+		left:72px;
+		position: absolute;
+	}
+	/*Home Run Tee*/
+	.homeruntee {
+		top:19px;
+		left:8px;
+		position: absolute;
+	}
+	/*Powder Gulch Express*/
+	.powdergulchexpress {
+		top:19px;
+		left:40px;
+		position: absolute;
+	}
+</style>
+<meta charset="UTF-8">
+<title>XMLHttpRequest and onload handler with asynchronous requests</title>
+<script>
+function load(url, callback) {
+  var req = new XMLHttpRequest();
+  req.open('GET', url);
+  // to allow us doing XSLT in IE
+  try { req.responseType = "msxml-document" } catch (ex) {}
+  req.onload = function() {
+    callback(req.responseXML);
+  };
+  req.send();
+}
+
+function transform(xml, xsl) {
+  load(
+    xml,
+    function(inputXml) {
+      load(
+        xsl,
+        function(xsltSheet) {
+          displayResult(inputXml, xsltSheet);
+        }
+      );
+    }
+  );
+}
+
+function displayResult(xmlInput, xsltSheet) {
+  if (typeof XSLTProcessor !== 'undefined') {
+    var proc = new XSLTProcessor();
+    proc.importStylesheet(xsltSheet);
+    document.getElementById('boards').appendChild(proc.transformToFragment(xmlInput, document));
+  }
+  else if (typeof xmlInput.transformNode !== 'undefined') {
+    document.getElementById("boards").innerHTML = xmlInput.transformNode(xsltSheet);
+  }
+}
+</script>
+</head>
+  <body onload="transform('https://status.skisilverstar.com/1756.xml', 'putnamboard.xsl')">
+<div id="boards"></div>
+</body>
+</html>
