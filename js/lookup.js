@@ -295,8 +295,8 @@ const StatusTypes = {
     [OldStatusTypes.RACING_CLOSURE]: ['race'],
 }
 
-const getStatus = (code) => Object.keys(StatusTypes)
-    .find((icon, index) => ((Object.values(StatusTypes)[index]
+const getStatus = (code, keys) => Object.keys(keys)
+    .find((icon, index) => ((Object.values(keys)[index]
         .includes(code))
-        ? Object.keys(StatusTypes)[index]
+        ? Object.keys(keys)[index]
         : null));

@@ -8,18 +8,13 @@ const groupByObjKey = (list, key) => list
         return rv;
     }, {});
 
-
-axios.get("data/status.json", { name: "data" }).then(function (response) {
-    const type = groupByObjKey(response.data, 'type');
-
-    console.log('type', type.trail);
-
+const RenderTable = (trails) => {
     let html = '<table class="canvas">';
     html += '<tbody>';
 
-    type.trail.forEach(tr => {
+    trails.forEach(tr => {
         const lookupObj = lookup.find((f) => f.name === tr.properties.name);
-        const status = getStatus(tr.properties.global_status);
+        const status = getStatus(tr.properties.global_status, StatusTypes);
         if (lookupObj != undefined) {
             console.log(lookupObj?.name, lookupObj?.class, status);
             html += `<tr>`;
@@ -31,6 +26,17 @@ axios.get("data/status.json", { name: "data" }).then(function (response) {
     html += '</tbody>';
     html += '</table>';
 
-    let boards = document.querySelector('#boards');
-    boards.innerHTML = html;
+    return html;
+}
+
+// const url = 'https://skisilverstar.powdr-dev.com/api/v1/dor/status';
+const url = 'data/status.json';
+
+axios.get(url, {
+    crossdomain: true,
+    name: "data"
+}).then(function (response) {
+    const type = groupByObjKey(response.data, 'type');
+    const boards = document.querySelector('#boards');
+    boards.innerHTML = RenderTable(type.trail);
 });
