@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">	
+<title>Village Board</title>
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="stylesheet" href="boards.css" />
+<link href="https://fonts.googleapis.com/css?family=Khula:800" rel="stylesheet">
+<style>
+	body {
+		background-color: black;
+	}
+/*Positioning*/
+	/*Vance*/
+	.aberdeenskiway {
+		top:20px;
+		left:8px;
+		position: absolute;
+	}
+	.comettrail {
+		top:73px;
+		left:8px;
+		position: absolute;
+	}
+	.easystreet {
+		top:31px;
+		left:8px;
+		position: absolute;
+	}
+	.farout {
+		top:62px;
+		left:8px;
+		position: absolute;
+	}
+	.silverqueen {
+		top:41px;
+		left:8px;
+		position: absolute;
+	}
+	.creekside {
+		top:51px;
+		left:8px;
+		position: absolute;
+	}	
+	.overthehill {
+		top:83px;
+		left:8px;
+		position: absolute;
+	}	
+	.fis {
+		top:94px;
+		left:8px;
+		position: absolute;
+	}	
+	.xmasbowl {
+		top:20px;
+		left:40px;
+		position: absolute;
+	}
+	.waltsrun {
+		top:31px;
+		left:40px;
+		position: absolute;
+	}
+	.constellation {
+		top:41px;
+		left:40px;
+		position: absolute;
+	}
+	.exhibition {
+		top:51px;
+		left:40px;
+		position: absolute;
+	}
+	.whiskeyjack {
+		top:73px;
+		left:40px;
+		position: absolute;
+	}
+	.middledipper {
+		top:83px;
+		left:40px;
+		position: absolute;
+	}
+	.milkyway {
+		top:94px;
+		left:40px;
+		position: absolute;
+	}
+	.skunkhollow {
+		top:20px;
+		left:73px;
+		position: absolute;
+	}
+	.chaletalley {
+		top:31px;
+		left:73px;
+		position: absolute;
+	}
+	.sundance {
+		top:42px;
+		left:73px;
+		position: absolute;
+	}
+	.bigdipperupper {
+		top:63px;
+		left:73px;
+		position: absolute;
+	}
+	.littledipper {
+		top:51px;
+		left:73px;
+		position: absolute;
+	}
+	.blastoff {
+		top:72px;
+		left:73px;
+		position: absolute;
+	}
+	.hotdog {
+		top:83px;
+		left:73px;
+		position: absolute;
+	}
+	.face {
+		top:93px;
+		left:73px;
+		position: absolute;
+	}
+	/*Powder Gulch*/
+	.auntgladys {
+		top:31px;
+		left:104px;
+		position: absolute;
+	}
+	.bergerstrasse {
+		top:41px;
+		left:104px;
+		position: absolute;
+	}
+	.lastchance {
+		top:51px;
+		left:104px;
+		position: absolute;
+	}
+	.twentyfivenorth {
+		top:62px;
+		left:104px;
+		position: absolute;
+	}
+	.justdandy {
+		top:72px;
+		left:104px;
+		position: absolute;
+	}
+	.sunnyridge {
+		top:83px;
+		left:104px;
+		position: absolute;
+	}
+	.buckedoff {
+		top:94px;
+		left:104px;
+		position: absolute;
+	}
+	.sunnyhigh {
+		top:104px;
+		left:104px;
+		position: absolute;
+	}
+	.robsonstreet {
+		top:115px;
+		left:104px;
+		position: absolute;
+	}
+	.fearngully {
+		top:30px;
+		left:136px;
+		position: absolute;
+	}
+	.eldorado {
+		top:41px;
+		left:136px;
+		position: absolute;
+	}
+	.weewillie {
+		top:51px;
+		left:136px;
+		position: absolute;
+	}
+	.gypsyqueen {
+		top:62px;
+		left:136px;
+		position: absolute;
+	}
+	.campbellsloop {
+		top:72px;
+		left:136px;
+		position: absolute;
+	}
+	.caliperridge {
+		top:83px;
+		left:136px;
+		position: absolute;
+	}
+	.larch {
+		top:94px;
+		left:136px;
+		position: absolute;
+	}
+	.juddsrun {
+		top:104px;
+		left:136px;
+		position: absolute;
+	}
+	.blackpine {
+		top:115px;
+		left:136px;
+		position: absolute;
+	}
+	.holysmokes {
+		top:19px;
+		left:168px;
+		position: absolute;
+	}
+	.minerva {
+		top:30px;
+		left:168px;
+		position: absolute;
+	}
+	.nirvana {
+		top:41px;
+		left:168px;
+		position: absolute;
+	}
+	.zypper {
+		top:51px;
+		left:168px;
+		position: absolute;
+	}
+	.bondiablo {
+		top:62px;
+		left:168px;
+		position: absolute;
+	}
+	.heresjoe {
+		top:72px;
+		left:168px;
+		position: absolute;
+	}
+	.normania {
+		top:83px;
+		left:168px;
+		position: absolute;
+	}
+	.blackbear {
+		top:94px;
+		left:168px;
+		position: absolute;
+	}
+	.whiteelephant {
+		top:104px;
+		left:168px;
+		position: absolute;
+	}
+	.robilliardsrush {
+		top:115px;
+		left:168px;
+		position: absolute;
+	}
+	/*Silver Woods*/
+	.rollercoaster {
+		top:62px;
+		left:40px;
+		position: absolute;
+	}
+	.starstruck {
+		top:117px;
+		left:73px;
+		position: absolute;
+	}
+	.mineshaft {
+		top:127px;
+		left:73px;
+		position: absolute;
+	}
+	.chaos {
+		top:138px;
+		left:73px;
+		position: absolute;
+	}
+	.silverfox {
+		top:117px;
+		left:8px;
+		position: absolute;
+	}
+	.shootingstar {
+		top:127px;
+		left:8px;
+		position: absolute;
+	}
+	.simplepleasure {
+		top:138px;
+		left:8px;
+		position: absolute;
+	}
+	.cloud9 {
+		top:148px;
+		left:8px;
+		position: absolute;
+	}
+	.runningonempty {
+		top:117px;
+		left:40px;
+		position: absolute;
+	}
+	.bxexpress {
+		top:127px;
+		left:40px;
+		position: absolute;
+	}
+	.northstar {
+		top:138px;
+		left:40px;
+		position: absolute;
+	}
+	/*Alpine Meadows*/
+	.crisscross {
+		top:139px;
+		left:104px;
+		position: absolute;
+	}
+	.solitude {
+		top:149px;
+		left:104px;
+		position: absolute;
+	}
+	.ridgerun {
+		top:138px;
+		left:136px;
+		position: absolute;
+	}
+	.lonestar {
+		top:149px;
+		left:136px;
+		position: absolute;
+	}
+	.splitdecision {
+		top:138px;
+		left:168px;
+		position: absolute;
+	}
+	.drsexpress {
+		top:149px;
+		left:168px;
+		position: absolute;
+	}
+	/*Home Run Tee*/
+	.homeruntee {
+		top:19px;
+		left:104px;
+		position: absolute;
+	}
+	/*Powder Gulch Express*/
+	.powdergulchexpress {
+		top:19px;
+		left:136px;
+		position: absolute;
+	}
+</style>
+<script>
+function load(url, callback) {
+  var req = new XMLHttpRequest();
+  req.open('GET', url);
+  // to allow us doing XSLT in IE
+  try { req.responseType = "msxml-document" } catch (ex) {}
+  req.onload = function() {
+    callback(req.responseXML);
+  };
+  req.send();
+}
+
+function transform(xml, xsl) {
+  load(
+    xml,
+    function(inputXml) {
+      load(
+        xsl,
+        function(xsltSheet) {
+          displayResult(inputXml, xsltSheet);
+        }
+      );
+    }
+  );
+}
+
+function displayResult(xmlInput, xsltSheet) {
+  if (typeof XSLTProcessor !== 'undefined') {
+    var proc = new XSLTProcessor();
+    proc.importStylesheet(xsltSheet);
+    document.getElementById('boards').appendChild(proc.transformToFragment(xmlInput, document));
+  }
+  else if (typeof xmlInput.transformNode !== 'undefined') {
+    document.getElementById("boards").innerHTML = xmlInput.transformNode(xsltSheet);
+  }
+}
+</script>
+</head>
+  <body onload="transform('https://status.skisilverstar.com/1756.xml', 'villageboard.xsl')">
+<div id="boards"></div>
+</body>
+</html>
