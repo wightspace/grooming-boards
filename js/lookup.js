@@ -24,7 +24,7 @@ const lookup = [
         class: "sundance"
     },
     {
-        name: "F.I.S",
+        name: "F.I.S.",
         class: "fis"
     },
     {
@@ -49,6 +49,10 @@ const lookup = [
     },
     {
         name: "Peanut Park",
+        class: "middledipper"
+    },
+    {
+        name: "Peanut Trail",
         class: "middledipper"
     },
     {
@@ -276,10 +280,89 @@ const lookup = [
         class: "homeruntee"
     },
     {
+        name: "Home Run Tee Bar",
+        class: "homeruntee"
+    },
+    {
         name: "Powder Gulch Express",
         class: "powdergulchexpress"
     }
 ];
+
+const unknownTrails = [
+    { name: "Brewer's Pond Loop - Multi Use", class: 'unknown' },
+    { name: "Bridle Path - Multi Use", class: 'unknown' },
+    { name: "Criss Cross - Multi Use", class: 'unknown' },
+    { name: "Abbot's Gulch", class: 'unknown' },
+    { name: "Attridge Face", class: 'unknown' },
+    { name: "Attridge Run Out", class: 'unknown' },
+    { name: "Bus Back", class: 'unknown' },
+    { name: "Fast Back", class: 'unknown' },
+    { name: "Outback", class: 'unknown' },
+    { name: "Ridgeback", class: 'unknown' },
+    { name: "Sore Back", class: 'unknown' },
+    { name: "Bib's Bumps", class: 'unknown' },
+    { name: "Big Dipper - Lower", class: 'unknown' },
+    { name: "Chute", class: 'unknown' },
+    { name: "Coaches", class: 'unknown' },
+    { name: "Deer Park", class: 'unknown' },
+    { name: "F.I.S.", class: 'unknown' },
+    { name: "Gopher Glades", class: 'unknown' },
+    { name: "Horsin' Around", class: 'unknown' },
+    { name: "Lower Deer Park", class: 'unknown' },
+    { name: "Lower Exhibition", class: 'unknown' },
+    { name: "Main Street Skiway", class: 'unknown' },
+    { name: "Middle Dipper", class: 'unknown' },
+    { name: "Moonbeam", class: 'unknown' },
+    { name: "Over The Hill", class: 'unknown' },
+    { name: "Peanut Trail", class: 'unknown' },
+    { name: "Show Off", class: 'unknown' },
+    { name: "Southern Cross", class: 'unknown' },
+    { name: "Spruce Meadow", class: 'unknown' },
+    { name: "Toilet Trail", class: 'unknown' },
+    { name: "Trinity Trees", class: 'unknown' },
+    { name: "Turnaround", class: 'unknown' },
+    { name: "Baker's Acres", class: 'unknown' },
+    { name: "Free Fall", class: 'unknown' },
+    { name: "Glade Runner", class: 'unknown' },
+    { name: "Robin's Hood", class: 'unknown' },
+    { name: "Sherwood Forest", class: 'unknown' },
+    { name: "Silver Meadows", class: 'unknown' },
+    { name: "Aabye Road", class: 'unknown' },
+    { name: "Alder Point", class: 'unknown' },
+    { name: "Blue Moon", class: 'unknown' },
+    { name: "Broncos Pitch", class: 'unknown' },
+    { name: "Canntastic", class: 'unknown' },
+    { name: "Cat Man Do", class: 'unknown' },
+    { name: "Chute 5", class: 'unknown' },
+    { name: "Davidson's Delight", class: 'unknown' },
+    { name: "Doognog", class: 'unknown' },
+    { name: "Eldorado Bumps", class: 'unknown' },
+    { name: "Gong Show", class: 'unknown' },
+    { name: "Gowabunga", class: 'unknown' },
+    { name: "Head Wall", class: 'unknown' },
+    { name: "High Lead", class: 'unknown' },
+    { name: "Hinky Heights", class: 'unknown' },
+    { name: "Hurtzwinkle's Delight", class: 'unknown' },
+    { name: "Kassanova", class: 'unknown' },
+    { name: "Kirkenheimer", class: 'unknown' },
+    { name: "Monty's Matrix", class: 'unknown' },
+    { name: "No Knees", class: 'unknown' },
+    { name: "Northern Lights", class: 'unknown' },
+    { name: "Paradise Glades", class: 'unknown' },
+    { name: "Pipeline", class: 'unknown' },
+    { name: "Quicksilver", class: 'unknown' },
+    { name: "Raven", class: 'unknown' },
+    { name: "Russty Whistle", class: 'unknown' },
+    { name: "Spirit Bowl", class: 'unknown' },
+    { name: "Stardust", class: 'unknown' },
+    { name: "Sunny Glades", class: 'unknown' },
+    { name: "Three Wise Men", class: 'unknown' },
+    { name: "U2", class: 'unknown' },
+    { name: "Uncle Buck", class: 'unknown' },
+    { name: "Where's Bob", class: 'unknown' },
+    { name: "OP1", class: 'unknown' },
+]
 
 const OldStatusTypes = {
     CLOSED: 'closed',

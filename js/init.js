@@ -8,17 +8,18 @@ const groupByObjKey = (list, key) => list
         return rv;
     }, {});
 
-const RenderTable = (trails) => {
+const RenderTable = (data) => {
     let html = '<table class="canvas">';
     html += '<tbody>';
 
-    trails.forEach(tr => {
+    data.forEach(tr => {
         const lookupObj = lookup.find((f) => f.name === tr.properties.name);
-        const status = getStatus(tr.properties.global_status, StatusTypes);
+        const status = tr.type === 'trail' ? tr.properties.global_status : tr.status[0].status_name;
+
+        const className = getStatus(status, StatusTypes);
         if (lookupObj != undefined) {
-            console.log(lookupObj?.name, lookupObj?.class, status);
             html += `<tr>`;
-            html += `<td width="100%" class="${lookupObj.class} ${status}"></td>`;
+            html += `<td width="100%" class="${lookupObj.class} ${className}"></td>`;
             html += `</tr>`;
         }
     });
@@ -36,7 +37,7 @@ axios.get(url, {
     crossdomain: true,
     name: "data"
 }).then(function (response) {
-    const type = groupByObjKey(response.data, 'type');
+    const type = response.data; //groupByObjKey(response.data, 'type');
     const boards = document.querySelector('#boards');
-    boards.innerHTML = RenderTable(type.trail);
+    boards.innerHTML = RenderTable(type);
 });
