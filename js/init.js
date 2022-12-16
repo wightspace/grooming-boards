@@ -30,10 +30,20 @@ const RenderTable = (data) => {
     return html;
 }
 
-// const url = 'https://skisilverstar.powdr-dev.com/api/v1/dor/status';
-const url = 'data/status.json';
+const prdUrl = 'https://skisilverstar.com/api/v1/dor/status';
+const demoUrl = 'data/status.json';
 
-axios.get(url, {
+axios.get(prdUrl, {
+    crossdomain: true,
+    name: "data"
+}).then(function (response) {
+    console.log('prd response', response);
+    // const type = response.data; //groupByObjKey(response.data, 'type');
+    // const boards = document.querySelector('#boards');
+    // boards.innerHTML = RenderTable(type);
+});
+
+axios.get(demoUrl, {
     crossdomain: true,
     name: "data"
 }).then(function (response) {
