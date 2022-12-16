@@ -35,7 +35,7 @@ const stgURL = 'https://skisilverstar.powdr-staging.com/api/v1/dor/status';
 const prdURL = 'https://skisilverstar.com/api/v1/dor/status';
 // const url = 'data/status.json';
 
-axios.get(prdURL, {
+axios.get(devURL, {
     crossdomain: true,
     name: "data"
 }).then(function (response) {
