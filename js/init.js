@@ -47,27 +47,3 @@ axios.get(devURL, {
     }
 });
 
-axios.get(stgURL, {
-    crossdomain: true,
-    name: "data"
-}).then(function (response) {
-    const type = response.data; //groupByObjKey(response.data, 'type');
-    if (type) {
-        console.log('stgURL', type);
-        const boards = document.querySelector('#boards');
-        boards.innerHTML = RenderTable(type);
-    }
-});
-
-axios.get(prdURL, {
-    crossdomain: true,
-    name: "data"
-}).then(function (response) {
-    const type = response.data; //groupByObjKey(response.data, 'type');
-    if (type) {
-        console.log('prdURL', type);
-        const boards = document.querySelector('#boards');
-        boards.innerHTML = RenderTable(type);
-    }
-});
-
