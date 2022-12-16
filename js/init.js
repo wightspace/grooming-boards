@@ -30,24 +30,44 @@ const RenderTable = (data) => {
     return html;
 }
 
-const prdUrl = 'https://skisilverstar.com/api/v1/dor/status';
-const demoUrl = 'data/status.json';
+const devURL = 'https://skisilverstar.powdr-dev.com/api/v1/dor/status';
+const stgURL = 'https://skisilverstar.powdr-staging.com/api/v1/dor/status';
+const prdURL = 'https://skisilverstar.com/api/v1/dor/status';
+// const url = 'data/status.json';
 
-axios.get(prdUrl, {
-    crossdomain: true,
-    name: "data"
-}).then(function (response) {
-    console.log('prd response', response);
-    // const type = response.data; //groupByObjKey(response.data, 'type');
-    // const boards = document.querySelector('#boards');
-    // boards.innerHTML = RenderTable(type);
-});
-
-axios.get(demoUrl, {
+axios.get(devURL, {
     crossdomain: true,
     name: "data"
 }).then(function (response) {
     const type = response.data; //groupByObjKey(response.data, 'type');
-    const boards = document.querySelector('#boards');
-    boards.innerHTML = RenderTable(type);
+    if (type) {
+        console.log('devURL', type);
+        const boards = document.querySelector('#boards');
+        boards.innerHTML = RenderTable(type);
+    }
 });
+
+axios.get(stgURL, {
+    crossdomain: true,
+    name: "data"
+}).then(function (response) {
+    const type = response.data; //groupByObjKey(response.data, 'type');
+    if (type) {
+        console.log('stgURL', type);
+        const boards = document.querySelector('#boards');
+        boards.innerHTML = RenderTable(type);
+    }
+});
+
+axios.get(prdURL, {
+    crossdomain: true,
+    name: "data"
+}).then(function (response) {
+    const type = response.data; //groupByObjKey(response.data, 'type');
+    if (type) {
+        console.log('prdURL', type);
+        const boards = document.querySelector('#boards');
+        boards.innerHTML = RenderTable(type);
+    }
+});
+
